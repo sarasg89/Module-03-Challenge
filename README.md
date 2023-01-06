@@ -10,7 +10,7 @@ I have created an application to generate a random password based on criteria se
 
 ## Credits
 
-The starter code for this project has been downloaded from the following repository: (https://github.com/coding-boot-camp/friendly-parakeet)
+The starter code for this project has been downloaded from the following repository: https://github.com/coding-boot-camp/friendly-parakeet
 
 ## License
 
