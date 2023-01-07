@@ -34,17 +34,56 @@ const randomFunction = {
   special: getRandomCharacter
 }
 
-// Promp function to display prompt box
-function openPrompt() {
+// Prompt box to choose password length
+function promptLength() {
   let length = prompt("How long do you want your password to be?");
   if (length < 8) {
-    window.alert("That's too short. Please choose at least 8 characters.")
+    window.alert("That's too short. Please try again and choose at least 8 characters.")
+    return false
   } else if (length > 128) {
-    window.alert("That's too long. Please choose less than 128 characters.")
-  }
+    window.alert("That's too long. Please try again and choose less than 128 characters.")
+    return false
+  } else {
+    console.log(length)
+  } 
+  return true
 }
 
 
+// Prompt box to choose lowercase letters
+function promptLowercase() {
+  let lowercase = window.confirm("Would you like your password to contain lowercase letters?");
+  console.log(lowercase);
+}
+
+// Prompt box to choose uppercase letters
+function promptUppercase() {
+  let uppercase = window.confirm("Would you like your password to contain uppercase letters?");
+  console.log(uppercase);
+}
+
+// Prompt box to choose numbers
+function promptNumbers() {
+  let numbers = window.confirm("Would you like your password to contain numbers?");
+  console.log(numbers);
+}
+
+// Prompt box to choose special characters
+function promptCharacters() {
+  let characters = window.confirm("Would you like your password to contain special characters?");
+  console.log(characters);
+}
+
+// Function to open all prompt boxes when button is clicked
+function generateBtn() {
+  if (!promptLength()) {
+    return
+  }
+  promptLowercase();
+  promptUppercase();
+  promptNumbers();
+  promptCharacters();
+}
 
 // // Get references to the #generate element
 // var generateBtn = document.querySelector("#generate");
