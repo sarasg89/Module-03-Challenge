@@ -2,90 +2,91 @@
 
 // Prompt box to choose password length
 function promptLength() {
-  let length = prompt("How long do you want your password to be?");
-  if (length < 8) {
-    window.alert("That's too short. Please try again and choose at least 8 characters.")
-    return false
-  } else if (length > 128) {
-    window.alert("That's too long. Please try again and choose less than 128 characters.")
-    return false
+  let lengthAnswer = prompt("How long do you want your password to be?");
+  if (lengthAnswer < 8) {
+    window.alert("That's too short. Please try again and choose at least 8 characters.");
+    return false;
+  } else if (lengthAnswer > 128) {
+    window.alert("That's too long. Please try again and choose less than 128 characters.");
+    return false;
   } else {
-    console.log(length)
+    console.log(lengthAnswer);
+    return lengthAnswer;
   } 
-  return true
 }
 
 // Prompt box to choose lowercase letters
 function promptLowercase() {
-  let lowercase = window.confirm("Would you like your password to contain lowercase letters?");
-  console.log(lowercase);
-  return lowercase
+  let lowercaseAnswer = window.confirm("Would you like your password to contain lowercase letters?");
+  console.log(lowercaseAnswer);
+  return lowercaseAnswer;
 }
 
 // Prompt box to choose uppercase letters
 function promptUppercase() {
-  let uppercase = window.confirm("Would you like your password to contain uppercase letters?");
-  console.log(uppercase);
-  return uppercase
+  let uppercaseAnswer = window.confirm("Would you like your password to contain uppercase letters?");
+  console.log(uppercaseAnswer);
+  return uppercaseAnswer;
 }
 
 // Prompt box to choose numbers
 function promptNumbers() {
-  let numbers = window.confirm("Would you like your password to contain numbers?");
-  console.log(numbers);
-  return numbers
+  let numbersAnswer = window.confirm("Would you like your password to contain numbers?");
+  console.log(numbersAnswer);
+  return numbersAnswer;
 }
 
 // Prompt box to choose special characters
 function promptCharacters() {
-  let characters = window.confirm("Would you like your password to contain special characters?");
-  console.log(characters);
-  return characters
+  let charactersAnswer = window.confirm("Would you like your password to contain special characters?");
+  console.log(charactersAnswer);
+  return charactersAnswer;
 }
 
 // Function to open all prompt boxes when button is clicked
 function generateBtn() {
-  if (!promptLength()) {
-    return
-  }
-  let hasLowercase = promptLowercase();
-  let hasUppercase = promptUppercase();
-  let hasNumbers = promptNumbers();
-  let hasCharacters = promptCharacters();
-  if (!(hasLowercase || hasUppercase || hasNumbers || hasCharacters)) {
-    window.alert("Oh oh, you must choose at least one character type. Please try again.");
-    console.clear();
+  let whatLength = promptLength();
+  if (whatLength < 129 && whatLength > 7) {
+    let hasLowercase = promptLowercase();
+    let hasUppercase = promptUppercase();
+    let hasNumbers = promptNumbers();
+    let hasCharacters = promptCharacters();
+    if (!(hasLowercase || hasUppercase || hasNumbers || hasCharacters)) {
+      window.alert("Oh oh, you must choose at least one character type. Please try again.");
+      console.clear();
+    }
+  } else {
+    return;
   }
 }
 
-// Lowercase letters
+// Function to generate lowercase letters
 function getRandomLower() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 }
 
-// Uppercase letters
+// Function to generate uppercase letters
 function getRandomUpper() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
 }
 
-// Numbers
+// Function to generate numbers
 function getRandomNumber() {
   return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
 }
 
-// Special characters
+// Function to generate special characters
 function getRandomCharacter() {
   const specialCharacters = " !\x22#$%&\x27()*+,-./:;<=>?@[\]";
   return specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
 }
 
-// Function to get one of each type randomly
-const randomFunction = {
-  lower: getRandomLower,
-  upper: getRandomUpper,
-  number: getRandomNumber,
-  special: getRandomCharacter
+// Function to generate the password randomly
+function generatePassword () {
+  length = promptLength();
 }
+
+
 
 
 // // Get references to the #generate element

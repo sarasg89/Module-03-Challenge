@@ -2,7 +2,9 @@
 
 ## Description
 
-I have created an application to generate a random password based on criteria selected by the user. The length of the password will be between 8 and 128 characters and may include lowecase, uppercase, number, and/or special characters. 
+I have created an application to generate a random password based on criteria selected by the user. The length of the password will be between 8 and 128 characters and may include lowercase, uppercase, number, and/or special characters.
+
+If the character chooses a length that is too short or too long, an error message will pop up and the user will have to start again. The user would also have to restart the password generator if they don't choose at least one character type.
 
 ## Screenshot
 
