@@ -1,5 +1,10 @@
 // Assignment code here
 
+/* Password criteria:
+8 - 128 characters
+Special characters: ! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~
+Lowercase / uppercase / numeric / special characters */
+
 // Lowercase letters
 function getRandomLower() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
@@ -17,10 +22,11 @@ function getRandomNumber() {
 
 // Special characters
 function getRandomCharacter() {
-  const specialCharacter = " !\x22#$%&\x27()*+,-./:;<=>?@[\]";
-  return specialCharacter[Math.floor(Math.random() * specialCharacter.length)];
+  const specialCharacters = " !\x22#$%&\x27()*+,-./:;<=>?@[\]";
+  return specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
 }
 
+// Function to get one of each type randomly
 const randomFunction = {
   lower: getRandomLower,
   upper: getRandomUpper,
@@ -28,20 +34,19 @@ const randomFunction = {
   special: getRandomCharacter
 }
 
+// Promp function to display prompt box
+function openPrompt() {
+  let length = prompt("How long do you want your password to be?");
+  if (length < 8) {
+    window.alert("That's too short. Please choose at least 8 characters.")
+  } else if (length > 128) {
+    window.alert("That's too long. Please choose less than 128 characters.")
+  }
+}
 
 
 
-
-
-
-
-
-/* Password criteria:
-8 - 128 characters
-Special characters: ! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~
-Lowercase / uppercase / numeric / special characters */
-
-// Get references to the #generate element
+// // Get references to the #generate element
 // var generateBtn = document.querySelector("#generate");
 
 // // Write password to the #password input
