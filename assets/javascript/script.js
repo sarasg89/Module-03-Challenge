@@ -12,7 +12,7 @@ function promptLength() {
   } else {
     console.log(lengthAnswer);
     return lengthAnswer;
-  } 
+  }
 }
 
 // Prompt box to choose lowercase letters
@@ -43,23 +43,6 @@ function promptCharacters() {
   return charactersAnswer;
 }
 
-// Function to open all prompt boxes when button is clicked
-function generateBtn() {
-  let whatLength = promptLength();
-  if (whatLength < 129 && whatLength > 7) {
-    let hasLowercase = promptLowercase();
-    let hasUppercase = promptUppercase();
-    let hasNumbers = promptNumbers();
-    let hasCharacters = promptCharacters();
-    if (!(hasLowercase || hasUppercase || hasNumbers || hasCharacters)) {
-      window.alert("Oh oh, you must choose at least one character type. Please try again.");
-      console.clear();
-    }
-  } else {
-    return;
-  }
-}
-
 // Function to generate lowercase letters
 function getRandomLower() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
@@ -81,25 +64,54 @@ function getRandomCharacter() {
   return specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
 }
 
-// Function to generate the password randomly
-function generatePassword () {
-  length = promptLength();
+const getTypes = {
+  lower: getRandomLower,
+  upper: getRandomUpper,
+  number: getRandomNumber,
+  character: getRandomCharacter
 }
 
+// Function to open all prompt boxes when button is clicked and then generate a password if all criteria are met
+function generateBtn() {
+  let whatLength = promptLength();
+  if (whatLength < 129 && whatLength > 7) {
+    let hasLowercase = promptLowercase();
+    let hasUppercase = promptUppercase();
+    let hasNumbers = promptNumbers();
+    let hasCharacters = promptCharacters();
+    if (!(hasLowercase || hasUppercase || hasNumbers || hasCharacters)) {
+      window.alert("Oh oh, you must choose at least one character type. Please try again.");
+      console.clear();
+    }
+    let password = generatePassword(whatLength, hasLowercase, hasUppercase, hasNumbers, hasCharacters);
+    writePassword(password);
+  } else {
+    return;
+  }
+}
 
-
+// Function to generate the password randomly
+function generatePassword(length, lower, upper, number, character) {
+  let generatedPassword = "";
+  for (i = 0; i < length; i++) {
+    generatedPassword += getRandomLower();
+    generatedPassword += getRandomUpper();
+    generatedPassword += getRandomNumber();
+    generatedPassword += getRandomCharacter();
+  }
+  let password = generatedPassword.slice(0, length);
+  console.log(password);  
+  return password;
+}
 
 // // Get references to the #generate element
 // var generateBtn = document.querySelector("#generate");
 
-// // Write password to the #password input
-// function writePassword() {
-//   var password = generatePassword();
-//   var passwordText = document.querySelector("#password");
+// Write password to the #password input
+function writePassword(password) {
+  var passwordText = document.querySelector("#password");
+  passwordText.value = password;
+}
 
-//   passwordText.value = password;
-
-// }
-
-// Add event listener to generate button
+// // Add event listener to generate button
 // generateBtn.addEventListener("click", writePassword);
