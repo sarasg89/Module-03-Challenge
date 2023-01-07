@@ -54,24 +54,28 @@ function promptLength() {
 function promptLowercase() {
   let lowercase = window.confirm("Would you like your password to contain lowercase letters?");
   console.log(lowercase);
+  return lowercase
 }
 
 // Prompt box to choose uppercase letters
 function promptUppercase() {
   let uppercase = window.confirm("Would you like your password to contain uppercase letters?");
   console.log(uppercase);
+  return uppercase
 }
 
 // Prompt box to choose numbers
 function promptNumbers() {
   let numbers = window.confirm("Would you like your password to contain numbers?");
   console.log(numbers);
+  return numbers
 }
 
 // Prompt box to choose special characters
 function promptCharacters() {
   let characters = window.confirm("Would you like your password to contain special characters?");
   console.log(characters);
+  return characters
 }
 
 // Function to open all prompt boxes when button is clicked
@@ -79,10 +83,14 @@ function generateBtn() {
   if (!promptLength()) {
     return
   }
-  promptLowercase();
-  promptUppercase();
-  promptNumbers();
-  promptCharacters();
+  let hasLowercase = promptLowercase();
+  let hasUppercase = promptUppercase();
+  let hasNumbers = promptNumbers();
+  let hasCharacters = promptCharacters();
+  if (!(hasLowercase || hasUppercase || hasNumbers || hasCharacters)) {
+    window.alert("Oh oh, you must choose at least one character type. Please try again.");
+    console.clear();
+  }
 }
 
 // // Get references to the #generate element
@@ -97,5 +105,5 @@ function generateBtn() {
 
 // }
 
-// // Add event listener to generate button
+// Add event listener to generate button
 // generateBtn.addEventListener("click", writePassword);
