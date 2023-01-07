@@ -6,6 +6,10 @@ I have created an application to generate a random password based on criteria se
 
 ## Screenshot
 
+![](./assets/images/screenshot1.png)
+
+![](./assets/images/screnshot2.png)
+
 ## Deployment
 
 ## Credits
