@@ -12,6 +12,8 @@ I have created an application to generate a random password based on criteria se
 
 The starter code for this project has been downloaded from the following repository: https://github.com/coding-boot-camp/friendly-parakeet
 
+In order to generate random letters, number and characters, I followed the instructions in this [YouTube tutorial](https://www.youtube.com/watch?v=duNmhKgtcsI&ab_channel=TraversyMedia) (4:11 - 12:24)
+
 ## License
 
 MIT License
