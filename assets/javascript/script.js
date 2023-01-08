@@ -64,15 +64,9 @@ function getRandomCharacter() {
   return specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
 }
 
-const getTypes = {
-  lower: getRandomLower,
-  upper: getRandomUpper,
-  number: getRandomNumber,
-  character: getRandomCharacter
-}
-
 // Function to open all prompt boxes when button is clicked and then generate a password if all criteria are met
 function generateBtn() {
+  console.clear();
   let whatLength = promptLength();
   if (whatLength < 129 && whatLength > 7) {
     let hasLowercase = promptLowercase();
@@ -94,10 +88,18 @@ function generateBtn() {
 function generatePassword(length, lower, upper, number, character) {
   let generatedPassword = "";
   for (i = 0; i < length; i++) {
-    generatedPassword += getRandomLower();
-    generatedPassword += getRandomUpper();
-    generatedPassword += getRandomNumber();
-    generatedPassword += getRandomCharacter();
+    if (lower) {
+      generatedPassword += getRandomLower();
+    };
+    if (upper) {
+          generatedPassword += getRandomUpper();
+    };
+    if (number) {
+          generatedPassword += getRandomNumber();
+    };
+    if (character) {
+          generatedPassword += getRandomCharacter();
+    }
   }
   let password = generatedPassword.slice(0, length);
   console.log(password);  
