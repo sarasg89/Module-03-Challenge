@@ -73,6 +73,7 @@ function buttonClicked() {
     let password = generatePassword(whatLength, hasLowercase, hasUppercase, hasNumbers, hasCharacters);
     writePassword(password);
   } else {
+    writePassword("");
     return;
   }
 }

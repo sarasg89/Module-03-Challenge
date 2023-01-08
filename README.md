@@ -12,6 +12,8 @@ If the character chooses a length that is too short or too long, an error messag
 
 ![](./assets/images/screnshot2.png)
 
+![](./assets/images/screenshot3.png)
+
 ## Deployment
 
 ## Credits
