@@ -18,7 +18,7 @@ The final password is displayed in the text box.
 
 ## Deployment
 
-https://sarasg89.github.io/Module-03-Challenge/
+https://sarasg89.github.io/Password-Generator/
 
 ## Credits
 
